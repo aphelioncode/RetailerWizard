@@ -11,11 +11,11 @@ public class BigDecimalConverter {
     }
 
     @TypeConverter
-    public Double amountToString(BigDecimal bigDecimal) {
+    public String amountToString(BigDecimal bigDecimal) {
         if (bigDecimal == null) {
             return null;
         } else {
-            return bigDecimal.doubleValue();
+            return bigDecimal.toString();
         }
     }
 }
