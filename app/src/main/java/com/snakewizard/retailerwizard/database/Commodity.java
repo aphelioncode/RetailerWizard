@@ -1,9 +1,11 @@
-package com.snakewizard.retailerwizard;
+package com.snakewizard.retailerwizard.database;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.annotation.NonNull;
 import androidx.room.TypeConverters;
+
+import com.snakewizard.retailerwizard.database.BigDecimalConverter;
 
 import java.math.BigDecimal;
 

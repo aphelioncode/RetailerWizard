@@ -1,4 +1,4 @@
-package com.snakewizard.retailerwizard;
+package com.snakewizard.retailerwizard.database;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

@@ -1,4 +1,4 @@
-package com.snakewizard.retailerwizard;
+package com.snakewizard.retailerwizard.checkout;
 
 import android.annotation.SuppressLint;
 import android.media.Image;
@@ -23,6 +23,7 @@ import com.google.mlkit.vision.barcode.Barcode;
 import com.google.mlkit.vision.barcode.BarcodeScanner;
 import com.google.mlkit.vision.barcode.BarcodeScanning;
 import com.google.mlkit.vision.common.InputImage;
+import com.snakewizard.retailerwizard.R;
 
 import java.util.concurrent.ExecutionException;
 

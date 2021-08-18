@@ -1,10 +1,8 @@
-package com.snakewizard.retailerwizard;
+package com.snakewizard.retailerwizard.database;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Dao;
-import androidx.room.RoomDatabase;
 
 import java.util.List;
 
@@ -13,17 +11,17 @@ public class CommodityRepository {
     private LiveData<List<Commodity>> myAllCommodities;
 
 
-    CommodityRepository(Application application) {
+    public CommodityRepository(Application application) {
         CommodityRoomDatabase db = CommodityRoomDatabase.getDatabase(application);
         myCommodityDao  = db.commodityDao();
         myAllCommodities  = myCommodityDao.getCommodities();
     }
 
-    LiveData<List<Commodity>> getMyAllCommodities() {
+    public LiveData<List<Commodity>> getMyAllCommodities() {
         return myAllCommodities;
     }
 
-    void insert(Commodity commodity ) {
+    public void insert(Commodity commodity) {
         CommodityRoomDatabase.databaseWriteExecutor.execute(() -> {
             myCommodityDao.insert(commodity);
         });
