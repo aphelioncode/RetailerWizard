@@ -83,4 +83,15 @@ public class Commodity {
         this.price=price;
     }
 
+    public boolean equals(Commodity com1,Commodity com2){
+        if(com1==null && com2==null){return true;}
+        if(com1==null ^ com2==null){return false;}
+        return  com1.getSerialNumber().equals(com2.getSerialNumber()) &&
+                com1.getName().equals(com2.getName()) &&
+                com1.getUnit().equals(com2.getUnit()) &&
+                com1.getAmount().equals(com2.getAmount()) &&
+                com1.getPrice().equals(com2.getPrice());
+
+    }
+
 }

@@ -3,4 +3,9 @@
     <string name="checkout_counter">checkout counter</string>
     <string name="data_synchronization">data synchronization</string>
     <string name="checkout_counter_title">Checkout Counter</string>
+    <string name="serial_number">serial number</string>
+    <string name="name">name</string>
+    <string name="unit">unit</string>
+    <string name="amount">amount</string>
+    <string name="price">price</string>
 </resources>
