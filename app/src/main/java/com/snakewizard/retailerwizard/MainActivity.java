@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.snakewizard.retailerwizard.apputil.AppUtil;
 import com.snakewizard.retailerwizard.checkin.CommodityViewActivity;
 import com.snakewizard.retailerwizard.checkout.CheckoutCounter;
 
@@ -32,28 +33,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkoutCounter(View view){
-        if (hasCameraPermission()) {
+        if (AppUtil.hasCameraPermission(this)) {
             Intent intent=new Intent(this, CheckoutCounter.class);
             startActivity(intent);
-        } else {
-            requestPermission();
+        }else{
+            AppUtil.requestCameraPermission(this);
         }
     }
 
-    private boolean hasCameraPermission() {
-        return ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED;
-    }
 
-    private void requestPermission() {
-        ActivityCompat.requestPermissions(
-                this,
-                new String[]{Manifest.permission.CAMERA},
-                0
-        );
-    }
+
+
 
 
 

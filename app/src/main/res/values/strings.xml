@@ -8,4 +8,5 @@
     <string name="unit">unit</string>
     <string name="amount">amount</string>
     <string name="price">price</string>
+    <string name="modify_database">modify database</string>
 </resources>
