@@ -9,4 +9,5 @@
     <string name="amount">amount</string>
     <string name="price">price</string>
     <string name="modify_database">modify database</string>
+    <string name="button_save">save</string>
 </resources>

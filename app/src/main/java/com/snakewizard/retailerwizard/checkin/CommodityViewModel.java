@@ -31,4 +31,6 @@ public class CommodityViewModel extends AndroidViewModel {
     void insert(Commodity commodity ) {
         mRepository.insert(commodity);
     }
+
+    void delete(Commodity commodity)  { mRepository.delete(commodity); }
 }

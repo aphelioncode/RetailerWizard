@@ -27,4 +27,10 @@ public class CommodityRepository {
         });
     }
 
+    public void delete(Commodity commodity) {
+        CommodityRoomDatabase.databaseWriteExecutor.execute(() -> {
+            myCommodityDao.delete(commodity);
+        });
+    }
+
 }

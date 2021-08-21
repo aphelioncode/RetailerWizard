@@ -45,9 +45,9 @@ abstract class CommodityRoomDatabase extends RoomDatabase {
                 // Populate the database in the background.
                 CommodityDao dao = INSTANCE.commodityDao();
                 dao.deleteAll();
-                Commodity commodity = new Commodity("1234567","example1","",new BigDecimal("20"),new BigDecimal("100"));
+                Commodity commodity = new Commodity("1234567","example1.1","KG",new BigDecimal("20"),new BigDecimal("100"));
                 dao.insert(commodity);
-                commodity = new Commodity("2234567","example2","",new BigDecimal("30"),new BigDecimal("100"));
+                commodity = new Commodity("2234567","example1.2","L",new BigDecimal("30"),new BigDecimal("100"));
                 dao.insert(commodity);
             });
         }
