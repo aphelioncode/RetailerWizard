@@ -22,5 +22,8 @@ public interface CommodityDao {
 
     @Delete
     void delete(Commodity commodity);
+
+    @Query("DELETE FROM commodity_table WHERE serialNumber = :serialNumber")
+    void deleteById(String serialNumber);
 }
 

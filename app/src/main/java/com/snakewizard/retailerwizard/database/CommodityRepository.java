@@ -33,4 +33,10 @@ public class CommodityRepository {
         });
     }
 
+    public void deleteById(String serialNumber) {
+        CommodityRoomDatabase.databaseWriteExecutor.execute(() -> {
+            myCommodityDao.deleteById(serialNumber);
+        });
+    }
+
 }

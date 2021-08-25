@@ -10,4 +10,6 @@
     <string name="price">price</string>
     <string name="modify_database">modify database</string>
     <string name="button_save">save</string>
+    <string name="cancel">cancel</string>
+    <string name="delete">delete</string>
 </resources>
