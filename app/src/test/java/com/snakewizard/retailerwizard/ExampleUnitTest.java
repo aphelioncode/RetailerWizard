@@ -1,5 +1,7 @@
 package com.snakewizard.retailerwizard;
 
+import com.snakewizard.retailerwizard.apputil.AppUtil;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,5 +15,13 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
+    }
+
+    @Test
+    public void strip_isCorrect(){
+        assert("abc".equals(AppUtil.strip("  abc  ")));
+        assert("abc".equals(AppUtil.strip("abc  ")));
+        assert("abc".equals(AppUtil.strip("  abc")));
+        assert("".equals(AppUtil.strip("   ")));
     }
 }

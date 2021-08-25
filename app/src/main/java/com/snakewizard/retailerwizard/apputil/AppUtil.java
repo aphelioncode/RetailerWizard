@@ -23,4 +23,20 @@ public class AppUtil {
                 0
         );
     }
+
+    // string.strip() is a function introduced since java 11
+    // in java 8, we manually rewrite this function
+    static public String strip(String str){
+        if(str==null){return null;}
+        char[] cs=str.toCharArray();
+        int p1=0,p2=cs.length;
+        while(p1<p2&&(cs[p1]==' '||cs[p2-1]==' ')) {
+            if(cs[p1]==' '){
+                p1++;
+                continue;}
+            if(cs[p2-1]==' '){
+                p2--;}
+        }
+        return new String(cs,p1,p2-p1);
+    }
 }
