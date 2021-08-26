@@ -23,5 +23,6 @@ public class ExampleUnitTest {
         assert("abc".equals(AppUtil.strip("abc  ")));
         assert("abc".equals(AppUtil.strip("  abc")));
         assert("".equals(AppUtil.strip("   ")));
+        assert("".equals(AppUtil.strip("")));
     }
 }

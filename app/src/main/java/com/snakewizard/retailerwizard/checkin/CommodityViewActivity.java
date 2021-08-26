@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -22,7 +24,28 @@ public class CommodityViewActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final CommodityListAdapter adapter = new CommodityListAdapter(new CommodityListAdapter.CommidityDiff());
+
+        adapter.setOnItemClickLitener(new CommodityListAdapter.OnItemClickLitener()
+        {
+
+            @Override
+            public void onItemClick(View view, int position)
+            {
+                TextView serialNumberItemView=view.findViewById(R.id.serial_number);
+                String serialNumber=serialNumberItemView.getText().toString();
+                Intent intent = new Intent(CommodityViewActivity.this,
+                        CommodityModifyActivity.class);
+                intent.putExtra("serialNumber",serialNumber);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position)
+            {}
+        });
+
         recyclerView.setAdapter(adapter);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Get a new or existing ViewModel from the ViewModelProvider.

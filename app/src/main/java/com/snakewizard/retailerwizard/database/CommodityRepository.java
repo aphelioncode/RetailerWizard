@@ -13,8 +13,8 @@ public class CommodityRepository {
 
     public CommodityRepository(Application application) {
         CommodityRoomDatabase db = CommodityRoomDatabase.getDatabase(application);
-        myCommodityDao  = db.commodityDao();
-        myAllCommodities  = myCommodityDao.getCommodities();
+        myCommodityDao = db.commodityDao();
+        myAllCommodities = myCommodityDao.getCommodities();
     }
 
     public LiveData<List<Commodity>> getMyAllCommodities() {
@@ -37,6 +37,14 @@ public class CommodityRepository {
         CommodityRoomDatabase.databaseWriteExecutor.execute(() -> {
             myCommodityDao.deleteById(serialNumber);
         });
+    }
+
+    public LiveData<Commodity> searchById(String serialNumber) {
+        return myCommodityDao.searchById(serialNumber);
+    }
+
+    public LiveData<List<Commodity>> searchByName(String name){
+        return myCommodityDao.searchByName(name);
     }
 
 }
