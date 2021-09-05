@@ -18,9 +18,9 @@ public class CommodityViewModel extends AndroidViewModel {
     // - Repository is completely separated from the UI through the ViewModel.
     private final LiveData<List<Commodity>> mAllCommodities;
 
-    public CommodityViewModel(Application application) {
+    public CommodityViewModel(Application application){
         super(application);
-        mRepository = new CommodityRepository(application);
+        mRepository=new CommodityRepository(application);
         mAllCommodities = mRepository.getMyAllCommodities();
     }
 
@@ -28,9 +28,4 @@ public class CommodityViewModel extends AndroidViewModel {
         return mAllCommodities;
     }
 
-    void insert(Commodity commodity ) {
-        mRepository.insert(commodity);
-    }
-
-    void delete(Commodity commodity)  { mRepository.delete(commodity); }
 }

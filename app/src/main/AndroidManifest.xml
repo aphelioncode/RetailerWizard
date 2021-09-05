@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RetailerWizard">
-        <activity android:name=".checkin.CommodityModifyActivity"></activity>
+        <activity android:name=".checkin.GetSerialNumberActivity"></activity>
+        <activity android:name=".checkin.CommodityModifyActivity" />
         <activity android:name=".checkout.CheckoutCounter" />
         <activity android:name=".checkin.CommodityViewActivity" />
         <activity android:name=".MainActivity">

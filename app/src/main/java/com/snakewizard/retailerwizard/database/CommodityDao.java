@@ -29,7 +29,7 @@ public interface CommodityDao {
     @Query("SELECT * FROM commodity_table WHERE serialNumber = :serialNumber")
     LiveData<Commodity> searchById(String serialNumber);
 
-    @Query("SELECT * FROM commodity_table WHERE name LIKE '%'||:name ||'%'")
+    @Query("SELECT * FROM commodity_table WHERE name LIKE '%'||:name||'%'")
     LiveData<List<Commodity>> searchByName(String name);
 }
 

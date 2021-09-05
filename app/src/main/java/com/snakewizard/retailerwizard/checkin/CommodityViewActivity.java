@@ -15,7 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.snakewizard.retailerwizard.R;
 
 public class CommodityViewActivity extends AppCompatActivity {
-    private CommodityViewModel mCommodityViewModel;
+    //private CommodityViewModel mCommodityViewModel;
+    private  CommodityViewModel mCommodityViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,8 @@ public class CommodityViewActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Get a new or existing ViewModel from the ViewModelProvider.
-        mCommodityViewModel  = new ViewModelProvider(this).get(CommodityViewModel.class);
+        //mCommodityViewModel  = new ViewModelProvider(this).get(CommodityViewModel.class);
+        mCommodityViewModel=new ViewModelProvider(this).get(CommodityViewModel.class);
 
         // The onChanged() method fires when the observed data changes and the activity is
         // in the foreground.
