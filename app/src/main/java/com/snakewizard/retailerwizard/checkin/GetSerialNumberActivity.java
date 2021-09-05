@@ -1,11 +1,11 @@
 package com.snakewizard.retailerwizard.checkin;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.text.TextUtils;
 import android.util.Size;
 import android.widget.TextView;
 
@@ -22,6 +22,8 @@ import androidx.camera.view.PreviewView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,7 +34,6 @@ import com.google.mlkit.vision.barcode.BarcodeScanner;
 import com.google.mlkit.vision.barcode.BarcodeScanning;
 import com.google.mlkit.vision.common.InputImage;
 import com.snakewizard.retailerwizard.R;
-import com.snakewizard.retailerwizard.apputil.AppUtil;
 
 import java.util.List;
 import java.util.Locale;
@@ -52,6 +53,7 @@ public class GetSerialNumberActivity extends AppCompatActivity {
 
     private Camera camera;
     Intent replyIntent;
+    Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +65,9 @@ public class GetSerialNumberActivity extends AppCompatActivity {
         view_finder = findViewById(R.id.view_finder);
 
         executor = Executors.newSingleThreadExecutor();
+        activity=this;
 
-        if (AppUtil.hasCameraPermission(this)) {
-           startCamera();
-        }else{
-            AppUtil.requestCameraPermission(this);
-        }
-
-
+        startCamera();
 
     }
 
@@ -112,6 +109,7 @@ public class GetSerialNumberActivity extends AppCompatActivity {
                 .build();
 
         imageAnalysis.setAnalyzer(executor, new ImageAnalysis.Analyzer() {
+
             @Override
             public void analyze(@NonNull ImageProxy image) {
 
@@ -137,12 +135,12 @@ public class GetSerialNumberActivity extends AppCompatActivity {
                                         public void onSuccess(List<Barcode> barcodes) {
                                             for (Barcode barcode: barcodes) {
                                                 rawValue[0] = barcode.getRawValue();
+                                                Intent intent= new Intent();
+                                                intent.putExtra("serialNumber", rawValue[0]);
+                                                setResult(RESULT_OK, intent);
+                                                replyIntent= intent;
                                                 text_view.setText(String.format(Locale.US, "%s", rawValue[0]));
-                                                replyIntent = new Intent();
-
-                                                replyIntent.putExtra("serialNumber", rawValue[0]);
-                                                setResult(RESULT_OK, replyIntent);
-                                                break;
+                                                activity.finish();
                                             }
                                         }
                                     })
@@ -153,6 +151,7 @@ public class GetSerialNumberActivity extends AppCompatActivity {
                                     });
 
                         }
+
                     });
                 }
 
@@ -166,7 +165,5 @@ public class GetSerialNumberActivity extends AppCompatActivity {
                 cameraSelector, imageAnalysis, preview);
 
         preview.setSurfaceProvider(view_finder.getSurfaceProvider());
-        if(replyIntent!=null){this.finish();}
-
     }
 }

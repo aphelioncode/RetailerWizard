@@ -17,6 +17,7 @@ import androidx.lifecycle.LiveData;
 
 import com.snakewizard.retailerwizard.R;
 import com.snakewizard.retailerwizard.apputil.AppUtil;
+import com.snakewizard.retailerwizard.checkout.CheckoutCounter;
 import com.snakewizard.retailerwizard.database.Commodity;
 import com.snakewizard.retailerwizard.database.CommodityRepository;
 
@@ -193,7 +194,12 @@ public class CommodityModifyActivity extends AppCompatActivity {
 
 
     public void openGetSerialNumberActivityForResult(View view) {
-        Intent intent = new Intent(CommodityModifyActivity.this, GetSerialNumberActivity.class);
-        getSerialNumberActivityResultLauncher.launch(intent);
+        if (AppUtil.hasCameraPermission(this)) {
+            Intent intent = new Intent(CommodityModifyActivity.this, GetSerialNumberActivity.class);
+            getSerialNumberActivityResultLauncher.launch(intent);
+        }else{
+            AppUtil.requestCameraPermission(this);
+        }
+
     }
 }
