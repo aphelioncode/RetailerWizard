@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="serial_number">条形码</string>
+    <string name="amount">数量</string>
+    <string name="data_synchronization">数据库</string>
+    <string name="delete">删除</string>
+    <string name="cancel">取消</string>
+    <string name="name">名称</string>
+    <string name="app_name">零售助手</string>
+    <string name="price">价格</string>
+    <string name="unit">单位</string>
+    <string name="modify_database">查找、新增、删除或修改</string>
+    <string name="button_save">保存</string>
+    <string name="checkout_counter_title">收银台</string>
+    <string name="checkout_counter">收银台</string>
+</resources>
