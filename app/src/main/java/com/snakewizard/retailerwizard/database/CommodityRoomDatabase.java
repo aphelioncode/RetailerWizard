@@ -49,10 +49,7 @@ abstract class CommodityRoomDatabase extends RoomDatabase {
                 dao.insert(commodity);
                 commodity = new Commodity("2234567","example1.2","L",new BigDecimal("30"),new BigDecimal("100"));
                 dao.insert(commodity);
-                commodity = new Commodity("3234567","other example1.1","KG",new BigDecimal("20"),new BigDecimal("100"));
-                dao.insert(commodity);
-                commodity = new Commodity("4234567","other example1.2","L",new BigDecimal("30"),new BigDecimal("100"));
-                dao.insert(commodity);
+
             });
         }
     };
